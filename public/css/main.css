@@ -99,3 +99,7 @@ body {
 .createoption {
 	margin-bottom: 15px;
 }
+
+.width700 {
+	width: 700px;
+}
