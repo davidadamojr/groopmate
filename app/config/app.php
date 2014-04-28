@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://localhost:8000',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -107,8 +107,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Raahul\LarryFour\LarryFourServiceProvider',
-		'Pitchanon\FacebookConnect\FacebookConnectServiceProvider'
-
+		
 	),
 
 	/*

@@ -1,0 +1,10 @@
+Move everything to controllers
+Use filters to ensure users are authenticated in areas of the app
+Use "chosen" plugin for any long selections
+Cron script to delete inactive groups
+Validate list of email addresses for invitations
+Handle expired invitation acceptance links
+Keep track of who invited who
+Authenticate access to groups
+Rewrite with angular js
+Make sure ajax connection issues are handled

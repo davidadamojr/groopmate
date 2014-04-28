@@ -13,7 +13,7 @@
 			<img src="{{ URL::asset('img/logo.png') }}" alt="Groopmate!" />
 			<h4>Collaborating on schoolwork has never been easier</h4>
 			<p>Groopmate allows you create and manage exclusive groups to collaboratively prepare for tests and share ideas with classmates!</p><br/><br/>
-			<a href="{{ url('welcome') }}"><img src="{{ asset('img/fblogin.png') }}" alt="Facebook login" /></a><br/>
+			<a href="{{ url('login/fb') }}"><img src="{{ asset('img/fblogin.png') }}" alt="Facebook login" /></a><br/>
 			<span class="small">We will never post anything without permission!</span>
 			<div class="welcome-footer">
 				<a href="#"><small>About</small></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

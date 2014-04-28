@@ -20,15 +20,15 @@
 						<a class="navbar-brand" href="#"><img src="{{ asset('img/logo-brand.png') }}" alt="Groopmate" /></a>
 					</div>
 					
-					<div class="collapse navbar-collapse">
+					<!--<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
 							<li><a href="{{ url('groups') }}">My Groups</a></li>
 							<!--<li><a href="{{ url('notifications') }}"><span class="badge pull-right">2</span>Notifications&nbsp;</a></li>-->
 							<!--<li><a href="{{ url('invite') }}">Invite Friends</a></li>-->
-							<!--<li><a href="{{ url('userstats') }}">User Stats</a></li>-->
+							<!--<li><a href="{{ url('userstats') }}">User Stats</a></li>
 							<li><a href="{{ url('logout') }}">Logout</a></li>
 						</ul>
-					</div>
+					</div>-->
 				</div>
 			</nav>
 			<div class="container">

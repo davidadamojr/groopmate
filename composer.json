@@ -6,7 +6,7 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"raahul/larryfour": "1.*",
-		"pitchanon/facebook-connect": "dev-master"
+		"facebook/php-sdk": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

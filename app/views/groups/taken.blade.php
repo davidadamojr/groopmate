@@ -11,8 +11,8 @@
 	<div class="headerbuttonbar" style="">
 		<div class="pull-left">
 			<ul class="nav nav-pills">
-				<li><a href="{{ url('groups/ryanai/quizzes') }}">New</a></li>
-				<li class="active"><a href="{{ url('groups/ryanai/quizzes/taken') }}">Taken</a></li>
+				<li><a href="{{ url('groups/'.$group->id.'/quizzes') }}">All</a></li>
+				<li class="active"><a href="{{ url('groups/'.$group->id.'/quizzes/taken') }}">Taken</a></li>
 			</ul>
 		</div>
 		<div class="headerbutton">
@@ -20,13 +20,20 @@
 		</div>
 	</div>
 	</br>
-	<!--<div class="panel panel-danger">
-		<div class="panel-heading">
-			<h3 class="panel-title">Quiz by <a href="#">Ryan Michaels</a></h3>
-		</div>
-		<div class="panel-body">
-			This quiz covers the following topics in Dr. Swigger's Artificial Intelligence class: Reinforcement Learning and Naive Bayes.<br/><br/>
-			<a href="takequiz.html" class="btn btn-primary btn-sm">Take Quiz</a> &nbsp;&nbsp;&nbsp;<strong><small>Already taken by 2 group members</small></strong>
-		</div>
-	</div>-->
+	@if (count($quizzes) > 0)
+		@foreach ($quizzes as $quiz)
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title">Quiz by {{ $quiz->user()->getResults()->fname . ' ' . $quiz->user()->getResults()->lname }}</h3>
+				</div>
+				<div class="panel-body">
+					{{ $quiz->description }}<br/><br/>
+					<a href="{{ url('groups/'.$group->id.'/takequiz/'.$quiz->id) }}" class="btn btn-primary btn-sm">Take Quiz Again</a>
+					&nbsp;&nbsp;&nbsp;<a href="" class="btn btn-primary btn-sm">See Results</a><!--&nbsp;&nbsp;&nbsp;<strong><small>Already taken by 2 group members</small></strong>-->
+				</div>
+			</div>
+		@endforeach
+	@else
+		<strong>No quizzes at the moment.</strong>
+	@endif
 @stop

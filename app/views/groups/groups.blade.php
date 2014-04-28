@@ -9,22 +9,24 @@
 			<a href="{{ url('groups/create') }}" class="btn pull-right btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Create Group</a>
 		</div>
 	</div><br/>
-	<div class="panel panel-danger">
-		<div class="panel-heading">
-			<h3 class="panel-title"><a href="grouppage.html">Ryan's AI Class Group</a></h3>
-		</div>
-		<div class="panel-body">
-			This is a study and practice group for Dr. Swigger's Artificial Intelligence class for the Spring 2014 semester.<br/><br/>
-			<div class="row">
-				<div class="col-lg-10">
-					<a href="{{ url('groups/ryanai') }}" class="btn btn-primary btn-sm">Go to group page</a>
-				</div>
-				<div class="col-lg-2" style="text-align:right;">
-					<strong><small>3 MEMBERS</small></strong>
+	@foreach ($groups as $group)
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="{{ url('groups/' . $group->id) }}">{{ $group->group_name }}</a></h3>
+			</div>
+			<div class="panel-body">
+				{{ $group->description }}<br/><br/>
+				<div class="row">
+					<div class="col-lg-10">
+						<a href="{{ url('groups/' . $group->id) }}" class="btn btn-primary btn-sm">Go to group page</a>
+					</div>
+					<div class="col-lg-2" style="text-align:right;">
+						<strong><small>{{ $group->members()->count() }} MEMBERS</small></strong>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	@endforeach
 	<!--<div class="panel panel-danger">
 		<div class="panel-heading">
 			<h3 class="panel-title"><a href="grouppage.html">Human Computer Interaction Group</a></h3>

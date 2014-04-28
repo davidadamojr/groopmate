@@ -10,15 +10,15 @@ class Quiz extends Eloquent {
 	
 	public function users()
 	{
-		return $this->belongsToMany('User');
+		return $this->belongsToMany('User', 'quiz_taken', 'user_id', 'quiz_id');
 	}
 	
-	public function creator()
+	public function user()
 	{
 		return $this->belongsTo('User');
 	}
 	
-	public function groups()
+	public function group()
 	{
 		return $this->belongsTo('Group');
 	}
