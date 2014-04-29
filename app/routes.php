@@ -189,7 +189,8 @@ Route::post('groups/create', function()
 	}
 	
 	//return $group;
-	return Redirect::to('groups/' . $group->id)->with('message', 'Group successfully created.');
+	Session::flash('message', 'Group successfully created.');
+	return Redirect::to('groups/' . $group->id);
 });
 
 Route::get('groups/create', function()

@@ -14,9 +14,7 @@
 			});
 			
 			$('#btnCheckAnswers').click(function(event){
-				$.post(
-			
-				validated = $('#questions_form').validationEngine('validate')
+				validated = $('#questions_form').validationEngine('validate');
 				if (validated){
 					//highlight correct options
 					option_list = $('input[name=array]').val();

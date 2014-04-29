@@ -11,3 +11,4 @@ Make sure ajax connection issues are handled
 Make quiz builder queries more efficient
 Make sure at least one option is correct
 Fix non-existent database key constraints
+Get quiz answers via ajax instead of via hidden form field.
