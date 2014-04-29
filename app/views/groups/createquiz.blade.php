@@ -45,9 +45,9 @@
 					
 					strQuestions = JSON.stringify(questions);
 					ajax_url = $('input[name=ajax_url]').val();
-					description = $('input[name=quiz_desc]').val();
+					description = $('textarea[name=quiz_desc]').val();
 					$.post(ajax_url, {questions: strQuestions, desc: description}).done(function(data){
-						//alert(JSON.stringify(data));
+						window.location = data;
 					});
 				}
 			});
@@ -120,7 +120,7 @@
 				</div>
 			</div>
 			<a href="#" id="addNew" class="btn btn-default">Add New Question</a><br/>
-			<div class="createquizactions" style="margin-top:40px;"><a href="{{ url('groups/ryanai/quizzes') }}" class="btn btn-default">Cancel Quiz</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary" id="btnSaveExit">Save & Exit</a></div>
+			<div class="createquizactions" style="margin-top:40px;"><a href="{{ url('groups/'.$group->id.'/quizzes') }}" class="btn btn-default">Cancel Quiz</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary" id="btnSaveExit">Save & Exit</a></div>
 		</form>
 		
 		<div class="option_template" style="display:none;">

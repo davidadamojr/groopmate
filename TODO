@@ -8,3 +8,6 @@ Keep track of who invited who
 Authenticate access to groups
 Rewrite with angular js
 Make sure ajax connection issues are handled
+Make quiz builder queries more efficient
+Make sure at least one option is correct
+Fix non-existent database key constraints

@@ -12,7 +12,7 @@
 		<div class="pull-left">
 			<ul class="nav nav-pills">
 				<li class="active"><a href="{{ url('groups/'.$group->id.'/quizzes') }}">All</a></li>
-				<li><a href="{{ url('groups/'.$group->id.'/quizzes/taken') }}">Taken</a></li>
+				<!--<li><a href="{{ url('groups/'.$group->id.'/quizzes/taken') }}">Taken</a></li>-->
 			</ul>
 		</div>
 		<div class="headerbutton">

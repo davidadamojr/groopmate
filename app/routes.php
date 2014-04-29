@@ -12,6 +12,7 @@
 */
 
 Route::model('group', 'Group');
+Route::model('quiz', 'Quiz');
 
 Route::get('/', function()
 {
@@ -265,7 +266,7 @@ Route::post('groups/{group}/createquiz', function(Group $group)
 	//create new quiz entry
 	$quiz = new Quiz;
 	$quiz->description = Input::get('desc');
-	$quiz_>user_id = Auth::user()->id;
+	$quiz->user_id = Auth::user()->id;
 	$quiz->group_id = $group->id;
 	$quiz->save();
 
@@ -273,18 +274,45 @@ Route::post('groups/{group}/createquiz', function(Group $group)
 	$json_questions = Input::get('questions');
 	$questions = json_decode($json_questions);	
 	foreach ($questions as $question){
-		$question = new Question;
+		$quizQuestion = new Question;
+		$quizQuestion->text = $question->text;
+		$quizQuestion->quiz_id = $quiz->id;
+		$quizQuestion->save();
+		
+		//add the options for this question to the database
+		$options = $question->options;
+		foreach ($options as $option){
+			$quizOption = new Option;
+			$quizOption->text = $option->text;
+			$quizOption->correct = $option->correct;
+			$quizOption->question_id = $quizQuestion->id;
+			$quizOption->save();
+		}
 	}
+	
+	Session::flash('message', 'Quiz successfully created.');
+	return url('groups/'.$group->id.'/quizzes');
 });
 
-Route::get('groups/{group}/quizcreated', function(Group $group)
-{
-	$quizzes = $group->quizzes()->orderBy('created_at', 'desc')->getResults();
+Route::get('groups/{group}/takequiz/{quiz}', function(Group $group, Quiz $quiz){
+	$option_ids = "";
+	
+	$questions = $quiz->questions()->getResults();
+	foreach ($questions as $question){
+		$correct_options = $question->options()->where('correct', '=', '1')->getResults();
+		foreach ($correct_options as $option){
+			$option_ids = $option_ids . $option->id . ',';
+		}
+	}
+	
+	$option_ids = $option_ids . "'X'";
+	
 	$data = array(
 		'group' => $group,
-		'quizzes' => $quizzes
+		'quiz' => $quiz,
+		'option_ids' => $option_ids
 	);
-	return View::make('groups.quizzes', $data);
+	return View::make('groups.takequiz', $data);
 });
 
 /*Route::get('/groups/ryanai/takequiz', function()
